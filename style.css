@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+header {
+    background-image:linear-gradient(to right,rgb(73, 65, 67) , rgb(202, 20, 20) , rgb(74, 74, 221));
+    background-size: 100%;
+    width:100%;
+}
+.slides .list-header-1 {
+    color: #fff;
+    background-position-x: center;
+}
+.slides .list-subtext-1 {
+    color:#fff;
+    text-shadow: rgb(0, 0, 0);
+}
+.slides .list-header-2 {
+    color:#fff;
+}
+.slides .list-subtext-2 {
+    color:#fff;
+    text-shadow: rgb(0, 0, 0);
+}
+.slides .list-header-3 {
+    color:#fff;
+}
+.slides .list-subtext-3 {
+    color:#fff;
+    text-shadow: rgb(0, 0, 0);
+}
+.slides .list-header-4 {
+    color:#fff;
+}
+.slides .list-subtext-4 {
+    color:#fff;
+    text-shadow: rgb(0, 0, 0);
+}
+.section-news-events {
+    color: #fff;
+    background-color: rgb(41, 38, 38);
+    mix-blend-mode: overlay;
+}
+.section-news-events h4 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 0 0 10px white;
+    padding-left: 5rem;
+}
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow: visible;
+}
+.page-footer {
+    background-image:linear-gradient(to right,rgb(73, 65, 67) , rgb(202, 20, 20) , rgb(74, 74, 221));
+    padding-bottom: none;
+    margin-top: none;
+    padding-top: none;
+}
+footer i {
+    transform: scale(1);
+    transition: 0.7s;
+}
+footer i:hover {
+    transform: scale(1) translateY(-15px);
+    cursor: pointer;
+}
+.caption h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4em;
+    font-weight: 600;
+    line-height: 1em;
+    justify-content: space-between;
+}
+.caption p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    font-weight: 400;
+    line-height: 1em;
+}
+.community.section-news-events {
+    background-position: absolute;
+    color: #fff;
+    height: 100vh;
+}
+.about.container.mission-vision {
+    font-size: 1.5em;
+}
