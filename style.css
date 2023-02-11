@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 
 header {
-    background-image:linear-gradient(to right,rgb(73, 65, 67) , rgb(202, 20, 20) , rgb(74, 74, 221));
+    background-image:linear-gradient(to left, rgb(97, 68, 68), rgb(168, 16, 16) , rgb(97, 68, 68));
+    opacity: 40%;
     background-size: 100%;
     width:100%;
+}
+header .logo-name {
+    color:#fff;
+    font-size: 2em;
 }
 .slides .list-header-1 {
     color: #fff;
@@ -36,13 +41,12 @@ header {
 }
 .section-news-events {
     color: #fff;
-    background-color: rgb(41, 38, 38);
-    mix-blend-mode: overlay;
-    height: 110vh;
+    background-color: rgb(78, 74, 74);
+    height: max-content;
 }
 .section-news-events h4 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-shadow: 0 0 10px white;
+    font-family: 'Calibri', sans-serif;
+    font-size: xx-large;
     padding-left: 5rem;
 
 }
@@ -55,7 +59,7 @@ html,body {
     overflow: visible;
 }
 .page-footer {
-    background-image:linear-gradient(to right,rgb(73, 65, 67) , rgb(202, 20, 20) , rgb(74, 74, 221));
+    background-color:rgb(41, 38, 38);
     padding-bottom: none;
     margin-top: none;
     padding-top: none;
@@ -88,4 +92,16 @@ footer i:hover {
 }
 .about.container.mission-vision {
     font-size: 1.5em;
+    border-style:solid;
+    border-color: rgb(97, 68, 68);
+    border-radius: 25px;
+    background-color: rgba(75, 70, 70, 0.3);
+
+}
+.mission , .vision {
+    color: rgb(168, 16, 16);
+}
+.section.section-3 p {
+    font-family: serif;
+    font-size: larger;
 }
