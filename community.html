@@ -73,7 +73,7 @@
                             <li>
                                 <a class='dropdown-trigger btn-floating btn-large waves-effect waves-red transparent hoverable' data-target='dropdown1'><i class="material-icons">account_circle</i></a>
                                     <ul id="dropdown1" class="dropdown-content grey">
-                                        <li><a href="#login" class="black-text modal-trigger">Log In</a></li>
+                                        <li><a href="mem_login.php" class="black-text">Log-in</a></li>
                                         <li><a href="#signup" class="black-text modal-trigger">Sign Up</a></li>
                                     </ul>
                                 </div>
@@ -94,7 +94,7 @@
 </header>
         <!-- Showcase Community -->
         <!-- Section (News & Events) -->
-        <section class="section community section-news-events">
+        <section class="section community section-news-events grey lighten-2">
             <h4>Latest News & Events</h4>
             <div class="container">
                 <div class="row">
@@ -174,7 +174,7 @@
                     <br>
                     <h4 class="white-text" style="font-family: Calibri, sans-serif; font-size: x-large;">FOLLOW</h4>
                     <ul>
-                    <li><a class="blue-text text-lighten-1 tooltipped" data-position="right" data-tooltip="Go to Facebook Account" href="https://www.facebook.com/profile.php?id=100073657065886"><span>Facebook</span></a></li>
+                    <li><a class="blue-text text-lighten-1 tooltipped" data-position="right" data-tooltip="Go to Facebook Account" target="_blank" href="https://www.facebook.com/profile.php?id=100073657065886"><span>Facebook</span></a></li>
                     <li><a class="blue-text text-lighten-1 tooltipped" data-position="right" data-tooltip="Go to Twitter Account" href="#!"><span>Twitter</span></a></li>
                     <li><a class="blue-text text-lighten-1 tooltipped" data-position="right" data-tooltip="Go to Instagram Account" href="#!"><span>Instagram</span></a></li>
                     </ul>
@@ -229,41 +229,39 @@
             </li>
                 <li><div class="divider"></div></li>
             <li>
-                <a href="#login" class="btn medium modal-trigger z-depth-5 waves-effect waves-light" style="background-color:rgb(168, 51, 51) ; border-radius: 20px">Log-in</a>
+                <a href="mem_login.php" class="btn medium modal-trigger z-depth-5 waves-effect waves-light" style="background-color:rgb(168, 51, 51) ; border-radius: 20px">Log-in</a>
             </li>
         </ul>
     </div>
         <!------------ Modal Structure for Log-in ------------>
-        <div id="login" class="modal" style="border-radius: 25px;">
+        <!-- <div id="login" class="modal" style="border-radius: 25px;">
             <div class="modal-content">
                 <div class="container">
-                    <h4>Account Log-in</h4>
-                    <p>Log-in to access your dashboard page</p>
-                    <form action="">
-                        <div class="input-field">
-                            <input type="email" required>
-                            <label for="email">Email</label>
+                    <h4>Member Log-in</h4>
+                    <form action="index.php" method="post">
+                        <div class="container">
+                            <label for="email"><b>Email</b></label>
+                            <input type="text" placeholder="Enter your email" name="email" required>
+
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+
+                            <label for="password"><b>Retype password</b></label>
+                            <input type="password" placeholder="Retype password" name="password" required>
+
+                            <button type="submit" class="modal-action modal-close btn waves-effect waves-light hoverable" style="background-color: rgb(168, 51, 51); border-radius: 20px; margin-bottom: 1rem;">Log-in</button>
+                            <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                            </label>
                         </div>
-                        <div class="input-field">
-                            <input type="password" required>
-                            <label for="password">Password</label>
-                        </div>
-                        <div class="input-field">
-                            <input type="password" required>
-                            <label for="password">Retype Password</label>
+                        <div class="container" style="background-color:#f1f1f1">
+                            <button type="button" class="modal-action modal-close btn waves-effect waves-light hoverable" style="color: black ; background-color:rgb(185, 180, 180); border-radius: 20px;">Cancel</button>
+                            <span class="psw">Forgot <a href="#">password?</a></span>
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close btn waves-effect waves-light hoverable" style="color: black ; background-color:rgb(185, 180, 180); border-radius: 20px;">
-                    <i class="material-icons left">loop</i>Reset Password
-                </a>
-                <a href="#!" class="modal-action modal-close btn waves-effect waves-light hoverable" style="background-color: rgb(168, 51, 51); border-radius: 20px;">
-                    <i class="material-icons left">lock_open</i>Log-in
-                </a>
-            </div>
-        </div>
+        </div> -->
 
         <!-- Jquery CDN -->
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
