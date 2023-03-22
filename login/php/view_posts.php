@@ -10,7 +10,6 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
 	// Loop through each row and display the post title and content
 	while ($row = mysqli_fetch_assoc($result)) {
-		echo "<h2>" . $row['title'] . "</h2>";
 		echo "<p>" . $row['content'] . "</p>";
 	}
 } else {

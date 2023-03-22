@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Edit Post</title>
-	<!-- Include the Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-	<div class="container">
-		<h1 class="my-4">Edit Post</h1>
-		<?php
+  <head>
+    <title>Edit Post</title>
+    <!-- Include the Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="my-4">Edit Post</h1> <?php
 		// Include the database connection file
 		include_once("db_conn.php");
 
@@ -33,4 +32,4 @@
 			$post_id = mysqli_real_escape_string($mysqli, $_GET['id']);
 
 			// Fetch the post from the database
-		
+		}

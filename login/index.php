@@ -1,7 +1,6 @@
 <?php
     session_start();
     if (!isset($_SESSION['id_number']) && !isset($_SESSION['user_id'])) { ?>
-    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,46 +14,42 @@
     <div class="bg-dark text-white">
       <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh">
         <form class="border shadow p-3 rounded" action="php/check-login.php" method="post" style="width: 450px;">
-        <img src="img/eaglelogo.png" class="img-thumbnail bg-dark" alt="...">
-          <h2 class="text-center p-3">CFCGI <span style="color:#4ccee8;">LOGIN</span></h2> <?php if (isset($_GET['error'])){ ?> <div class="alert alert-danger" role="alert"> <?=$_GET['error']?> </div> <?php }?> 
-          <div class="input-group mb-3">
-              <span class="input-group-text">ID Number</span>
-              <input type="text" name="idnumber" class="form-control" id="idnumber">
+          <img src="img/eaglelogo.png" class="img-thumbnail bg-dark" alt="...">
+          <h2 class="text-center p-3">CFCGI <span style="color:#4ccee8;">LOGIN</span>
+          </h2> <?php if (isset($_GET['error'])){ ?> <div class="alert alert-danger" role="alert"> <?=$_GET['error']?> </div> <?php }?> <div class="input-group mb-3">
+            <span class="input-group-text">ID Number</span>
+            <input type="text" name="idnumber" class="form-control" id="idnumber">
           </div>
           <br>
           <div class="input-group mb-3">
-              <span class="input-group-text">Password</span>
-              <input type="password" name="password" class="form-control" id="password">
+            <span class="input-group-text">Password</span>
+            <input type="password" name="password" class="form-control" id="password">
           </div>
-          <!-- An element to toggle between password visibility -->
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <input type="checkbox" onclick="myFunction()">Show Password  
-           <div class="input-group mb-3">
-              <span class="input-group-text">Select:</span>
-    
-          <select class="form-select " name="role" aria-label="Default select example">
-            <option selected value="rider">Rider</option>
-            <option value="action_officer">Action Officer</option>
-            <option value="chaplain">Chaplain</option>
-          </select>
+          <!-- An element to toggle between password visibility --> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" onclick="myFunction()">Show Password <div class="input-group mb-3">
+            <span class="input-group-text">Select:</span>
+            <select class="form-select " name="role" aria-label="Default select example">
+              <option selected value="rider">Rider</option>
+              <option value="action_officer">Action Officer</option>
+              <option value="chaplain">Chaplain</option>
+            </select>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
           <br>
-              <a href="forgot_password.php">Forgot Password</a>
+          <a href="forgot_password.php">Forgot Password</a>
           <br>You don't have account? <a href="register.php" class="mt-3">Click Here</a>
         </form>
       </div>
     </div>
     <script>
-          function myFunction() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-</script>
+      function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+    </script>
   </body>
 </html> <?php }else {
     header("Location: home.php");
