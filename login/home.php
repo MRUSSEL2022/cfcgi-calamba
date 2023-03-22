@@ -1,211 +1,69 @@
 <?php
     session_start();
-    include "db_conn.php";
-    if (isset($_SESSION['username']) && isset($_SESSION['id'])) { ?>
+    include "../login/php/db_conn.php";
+    if (isset($_SESSION['idnumber']) && isset($_SESSION['user_id'])) { ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/forum.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styleadmin.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>Document</title>
   </head>
   <body>
     <!--wrapper start-->
-    <div class="wrapper">
-      <!--header menu start-->
-      <div class="header">
-        <div class="header-menu">
-          <div class="title">CFC <span>GI</span>
-          </div>
-          <div class="sidebar-btn">
-            <i class="fa-solid fa-bars"></i>
-          </div>
-          <ul>
-            <li>
-              <a href="#">
-                <i class="fa-solid fa-search"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa-solid fa-bell"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa-solid fa-power-off"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class=""> <?php if ($_SESSION['role'] == 'admin'){ ?>
+    <?php require 'includes/header.php' ?>
+      <div class=""> <?php if ($_SESSION['role'] == 'chaplain'){ ?>
         <!-- for admin -->
-        <div class="card" style="width: 18rem;">
-          <img src="img/admin.jpg" class="card-img-top" alt="admin image">
-          <div class="card-body text-center">
-            <h5 class="card-title"> <?=$_SESSION['name']?> </h5>
-            <a href="logout.php" class="btn btn-dark">Logout</a>
-          </div>
-        </div>
-        <div class="p-3"> <?php include 'php/member.php';
-                        if (mysqli_num_rows($res) > 0)  {?> <h1 class="display-4 fs-1">Members</h1>
-          <table class="table" style="width: 32rem;">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Username</th>
-                <th scope="col">Role</th>
-              </tr>
-            </thead>
-            <tbody> <?php
-                                $i =1;
-                                while ($rows = mysqli_fetch_assoc($res)) {?> <tr>
-                <th scope="row"> <?=$i?> </th>
-                <td> <?=$rows['name']?> </td>
-                <td> <?=$rows['username']?> </td>
-                <td> <?=$rows['role']?> </td>
-              </tr> <?php $i++; }?> </tbody>
-          </table> <?php }?>
-        </div> <?php }else {?>
+         <?php }else {?>
         <!-- for users -->
         <!--sidebar start-->
-        <div class="sidebar">
-          <div class="sidebar-menu">
-            <center class="profile">
-              <img src="img/cfcgi1.png" alt="">
-              <p>CFCGI</p>
-            </center>
-            <li class="item">
-              <a href="#" class="menu-btn">
-                <i class="fas fa-desktop"></i>
-                <span>dashboard</span>
-              </a>
-            </li>
-            <li class="item" id="profile">
-              <a href="#profile" class="menu-btn">
-                <i class="fas fa-user-circle"></i>
-                <span> Profile <i class="fas fa-chevron-down drop-down"></i>
-                </span>
-              </a>
-              <div class="sub-menu">
-                <a href="#">
-                  <i class="fas fa-image"></i>
-                  <span>Picture</span>
-                </a>
-                <a href="#">
-                  <i class="fas fa-address-card"></i>
-                  <span>Info</span>
-                </a>
-              </div>
-            </li>
-            <li class="item" id="message">
-              <a href="#message" class="menu-btn">
-                <i class="fas fa-envelope"></i>
-                <span> Message <i class="fas fa-chevron-down drop-down"></i>
-                </span>
-              </a>
-              <div class="sub-menu">
-                <a href="#">
-                  <i class="fas fa-envelope"></i>
-                  <span>New</span>
-                </a>
-                <a href="#">
-                  <i class="fas fa-envelope-square"></i>
-                  <span>Sent</span>
-                </a>
-                <a href="#">
-                  <i class="fas fa-exclamation-circle"></i>
-                  <span>Spam</span>
-                </a>
-              </div>
-            </li>
-            <li class="item" id="settings">
-              <a href="#settings" class="menu-btn">
-                <i class="fas fa-cog"></i>
-                <span> Setting <i class="fas fa-chevron-down drop-down"></i>
-                </span>
-              </a>
-              <div class="sub-menu">
-                <a href="#">
-                  <i class="fas fa-lock"></i>
-                  <span>Password</span>
-                </a>
-                <a href="#">
-                  <i class="fas fa-language"></i>
-                  <span>Language</span>
-                </a>
-              </div>
-            </li>
-            <li class="item">
-              <a href="logout.php" class="menu-btn">
-                <i class="fas fa-info-circle"></i>
-                <span> Logout</span>
-              </a>
-            </li>
-          </div>
-        </div>
+        <?php require 'includes/leftbar.php' ?>
         <!--sidebar end-->
         <!--main container start-->
         <div class="main-container">
-          <div class="container">
-            <h1 class="my-4">Post Content</h1>
-            <form action="submit_post.php" method="post">
-              <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" class="form-control" id="title" name="title">
-              </div>
-              <div class="form-group">
-                <label for="content">Content:</label>
-                <textarea class="form-control" id="content" name="content"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-          <div class="container">
-            <h1 class="my-4">Posts</h1> <?php
-		// Include the database configuration file
-		include('db_conn.php');
-
-		// Get all the posts from the database
-		$sql = "SELECT * FROM posts ORDER BY created_at DESC";
-		$result = mysqli_query($conn, $sql);
-
-		// Check if any posts are found
-		if (mysqli_num_rows($result) > 0) {
-			// Loop through each row and display the post title, content, and created date
-			while ($row = mysqli_fetch_assoc($result)) {
-				echo "
-															<div class='card my-4'>";
-				echo "
-																<div class='card-body'>";
-				echo "
-																	<h2 class='card-title'>" . $row['title'] . "</h2>";
-				echo "
-																	<p class='card-text'>" . $row['content'] . "</p>";
-				echo "
-																	<p class='card-text'>
-																		<small class='text-muted'>Created on " . date('F j, Y, g:i a', strtotime($row['created_at'])) . "</small>
-																	</p>";
-				echo "
-																</div>";
-				echo "
-															</div>";
-			}
-		} else {
-			echo "No posts found.";
-		}
-
-		// Close the database connection
-		mysqli_close($conn);
-		?>
+              <!-- POST BOX -->
+              <div class="widget-post" aria-labelledby="post-header-title">
+                  <div class="widget-post__header">
+                    <h2 class="widget-post__title" id="post-header-title">
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                      Write Me
+                    </h2>
+                  </div>
+                  <form action="submit_post.php" method="post" id="widget-form" class="widget-post__form" name="form" aria-label="post widget">
+                    <div class="widget-post__content">
+                      <label for="post-content" class="sr-only">Share</label>
+                      <textarea id="content" name="content" class="widget-post__textarea scroller" placeholder="What's wrong on you?"></textarea>
+                    </div>
+                    <div class="widget-post__options is--hidden" id="stock-options">
+                    </div>
+                    <div class="widget-post__actions post--actions">
+                      <div class="post-actions__attachments">
+ 
+                        <button type="button" class="btn post-actions__upload attachments--btn">
+                          <label for="upload-image" class="post-actions__label">
+                            <i class="fa fa-upload" aria-hidden="true"></i> 
+                            upload image
+                          </label>
+                        </button>
+                        <input type="file" id="upload-image" accept="image/*" multiple>
+                      </div>
+                      <div class="post-actions__widget">
+                        <button type="submit" class="btn post-actions__publish">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <br/>
+                <br/>
+              <!-- END POST BOX -->
+          <?php require 'includes/forum.php' ?>
           </div>
           <!-- Include the Bootstrap JS -->
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
